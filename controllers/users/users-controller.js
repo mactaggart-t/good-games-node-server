@@ -19,15 +19,24 @@ const login = async (req, res) => {
 }
 
 
-const logout = (req, res) => {
+const logout = async (req, res) => {
 }
 
 
-const profile = (req, res) => {
+const profile = async (req, res) => {
 }
 
 
-const signup = (req, res) => {
+const signup = async (req, res) => {
+    const user = req.body
+    const existingUser = await userDao.findUserByUsername(user.username)
+    if (existingUser) {
+        res.sendStatus(403)
+        return
+    }
+    const currentUser = await userDao.createUser(user)
+    req.session['currentUser'] = currentUser
+    res.json(currentUser)
 }
 
 export default UserController
