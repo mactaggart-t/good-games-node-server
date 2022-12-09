@@ -20,6 +20,8 @@ const login = async (req, res) => {
 
 
 const logout = async (req, res) => {
+    req.session.destroy()
+    res.sendStatus(200)
 }
 
 
