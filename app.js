@@ -24,7 +24,8 @@ app.use(session({
                     cookie: {secure: false}
 }))
 app.use(express.json());
-import UserController
-    from "./controllers/users/users-controller.js"
+import UserController from "./controllers/users/users-controller.js"
+import FollowersController from "./controllers/followers/followers-controller.js";
 UserController(app)
+FollowersController(app)
 app.listen(process.env.PORT || 4000);

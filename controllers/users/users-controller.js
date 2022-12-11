@@ -1,5 +1,4 @@
 import * as userDao from './userDao.js'
-import {updateUser} from "./userDao.js";
 
 const UserController = (app) => {
     app.post('/api/login', login);
@@ -54,7 +53,7 @@ const update = async (req, res) => {
         res.sendStatus(403)
         return
     }
-    await updateUser(newUser.username, newUser)
+    await userDao.updateUser(newUser.username, newUser)
     req.session['currentUser'] = newUser
     res.json({user: newUser})
 }
