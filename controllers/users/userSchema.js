@@ -5,6 +5,6 @@ const usersSchema = mongoose.Schema({
                                    email: String,
                                    firstName: String,
                                    lastName: String,
-                                   role: {type: String, enum: ['USER', 'ADMIN']},
+                                   role: {type: String, enum: ['USER', 'ADMIN'], required: true},
                                }, {collection: 'users'});
 export default usersSchema;

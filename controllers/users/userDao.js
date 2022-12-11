@@ -18,6 +18,11 @@ export const deleteUser = async (userID) => {
 }
 export const updateUser = async (username, newUser) => {
     const filter = {username: username}
-    const update = {firstName: newUser.firstName, lastName: newUser.lastName, role: newUser.role}
+    const update = {
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        role: newUser.role,
+        email: newUser.email
+    }
     await usersModel.findOneAndUpdate(filter, update);
 }

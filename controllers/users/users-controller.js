@@ -28,8 +28,9 @@ const logout = async (req, res) => {
 
 
 const profile = async (req, res) => {
-    const username = req.body
-    res.json(req.session['currentUser'])
+    const username = req.body.username
+    const user = await userDao.findUserByUsername(username)
+    res.json({user: user})
 }
 
 
@@ -54,6 +55,7 @@ const update = async (req, res) => {
         return
     }
     await updateUser(newUser.username, newUser)
+    req.session['currentUser'] = newUser
     res.json({user: newUser})
 }
 
