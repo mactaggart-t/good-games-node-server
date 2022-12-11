@@ -7,8 +7,8 @@ export const findUserByUsername = async (username) =>
     await usersModel.findOne({username})
 
 
-export const findUserByCredentials = async ({username, password}) =>
-    await usersModel.findOne({username, password})
+export const findUserByCredentials = async ({username, password, role}) =>
+    await usersModel.findOne({username, password, role})
 
 export const findAllUsers = async () => await usersModel.find()
 
@@ -16,6 +16,8 @@ export const findAllUsers = async () => await usersModel.find()
 export const deleteUser = async (userID) => {
 
 }
-export const updateUser = async (userID, newUser) => {
-
+export const updateUser = async (username, newUser) => {
+    const filter = {username: username}
+    const update = {firstName: newUser.firstName, lastName: newUser.lastName, role: newUser.role}
+    await usersModel.findOneAndUpdate(filter, update);
 }
