@@ -4,4 +4,4 @@ export const findAllReviewsFor = async (gameID) => await reviewsModel.find({game
 
 export const addReview = async (review) => await reviewsModel.create(review)
 
-export const deleteReview = async (reviewID) => await reviewsModel.findOneAndRemove({_id, reviewID})
+export const deleteReview = async (reviewID) => await reviewsModel.findOneAndRemove({_id: reviewID})
