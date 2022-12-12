@@ -26,6 +26,8 @@ app.use(session({
 app.use(express.json());
 import UserController from "./controllers/users/users-controller.js"
 import FollowersController from "./controllers/followers/followers-controller.js";
+import ReviewsController from "./controllers/reviews/reviews-controller.js";
 UserController(app)
 FollowersController(app)
+ReviewsController(app)
 app.listen(process.env.PORT || 4000);
