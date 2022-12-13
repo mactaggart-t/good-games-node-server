@@ -23,8 +23,8 @@ const getFollowing = async (req, res) => {
     const username = req.body.username
     const followers = await followersDao.findFollowingFor(username)
     const players = []
-    for (let follower in followers) {
-        const userModel = await usersDao.findUserByUsername(follower)
+    for (let follower of followers) {
+        const userModel = await usersDao.findUserByUsername(follower.following)
         players.push(userModel)
     }
     res.json(players)

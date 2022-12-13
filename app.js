@@ -27,7 +27,9 @@ app.use(express.json());
 import UserController from "./controllers/users/users-controller.js"
 import FollowersController from "./controllers/followers/followers-controller.js";
 import ReviewsController from "./controllers/reviews/reviews-controller.js";
+import DetailsController from "./controllers/details/details-controller.js";
 UserController(app)
 FollowersController(app)
 ReviewsController(app)
+DetailsController(app)
 app.listen(process.env.PORT || 4000);
